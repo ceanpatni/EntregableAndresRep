@@ -4,3 +4,5 @@ para generar la imagen
 docker build -t entregableandres:v1.0.2 .
 
 docker run -p 8082:8080 entregableandres:v1.0.2
+
+importante cuando arranquen toca colocar en la url localhost:8080/products
