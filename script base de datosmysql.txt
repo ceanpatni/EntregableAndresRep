@@ -1,0 +1,33 @@
+CREATE DATABASE entregableAndres;
+use entregableAndres;
+CREATE TABLE Products (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(100) NOT NULL,
+    Price DECIMAL(18,2) NOT NULL,
+    Description LONGTEXT NULL,
+    Quantity INT NOT NULL
+);
+
+CREATE TABLE Orders (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    OrderDate DATETIME NOT NULL,
+    TotalAmount DECIMAL(18,2) NOT NULL,
+    CustomerId INT NOT NULL
+);
+
+CREATE TABLE OrderItems (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    OrderId INT NOT NULL,
+    ProductId INT NOT NULL,
+    Quantity INT NOT NULL,
+    UnitPrice DECIMAL(18,2) NOT NULL,
+    FOREIGN KEY (OrderId) REFERENCES Orders(Id),
+    FOREIGN KEY (ProductId) REFERENCES Products(Id)
+);
+
+
+insert into Products (Id,
+    Name,
+    Price,
+    Description,
+    Quantity) values(1,'producto nombre',12000,'probando',12);
